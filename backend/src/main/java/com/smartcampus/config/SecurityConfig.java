@@ -40,6 +40,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/api/auth/google").permitAll()
                 // Public resource browsing
                 .requestMatchers(HttpMethod.GET, "/api/resources/**").permitAll()
+                // Public static file serving (ticket attachments)
+                .requestMatchers(HttpMethod.GET, "/uploads/**").permitAll()
                 // Admin-only endpoints
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST,   "/api/resources/**").hasRole("ADMIN")
