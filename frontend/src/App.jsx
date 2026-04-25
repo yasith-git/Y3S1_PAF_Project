@@ -10,15 +10,10 @@ import ResourceManagePage from './pages/admin/ResourceManagePage'
 import BookingFormPage    from './pages/bookings/BookingFormPage'
 import MyBookingsPage     from './pages/bookings/MyBookingsPage'
 import AdminBookingsPage  from './pages/admin/AdminBookingsPage'
-
-// ─── Placeholder pages (will be replaced by feature/tickets) ─────────────────
-const ComingSoon = ({ title }) => (
-  <Box sx={{ textAlign: 'center', py: 12, color: 'text.secondary' }}>
-    <Box sx={{ fontSize: 64 }}>🚧</Box>
-    <Box sx={{ fontSize: 24, fontWeight: 700, mt: 2 }}>{title}</Box>
-    <Box sx={{ mt: 1 }}>This feature is being developed — check back soon!</Box>
-  </Box>
-)
+import CreateTicketPage   from './pages/tickets/CreateTicketPage'
+import MyTicketsPage      from './pages/tickets/MyTicketsPage'
+import TicketDetailPage   from './pages/tickets/TicketDetailPage'
+import AdminTicketsPage   from './pages/admin/AdminTicketsPage'
 
 // ─── Premium MUI theme ────────────────────────────────────────────────────────
 const theme = createTheme({
@@ -76,11 +71,11 @@ function App() {
           <Route path="/bookings/my"  element={<ProtectedRoute><MyBookingsPage /></ProtectedRoute>} />
           <Route path="/admin/bookings" element={<AdminRoute><AdminBookingsPage /></AdminRoute>} />
 
-          {/* Tickets – Member 3 (feature/tickets) */}
-          <Route path="/tickets/new"   element={<ProtectedRoute><ComingSoon title="Report an Issue" /></ProtectedRoute>} />
-          <Route path="/tickets/my"    element={<ProtectedRoute><ComingSoon title="My Tickets" /></ProtectedRoute>} />
-          <Route path="/tickets/:id"   element={<ProtectedRoute><ComingSoon title="Ticket Details" /></ProtectedRoute>} />
-          <Route path="/admin/tickets" element={<AdminRoute><ComingSoon title="Admin · Tickets" /></AdminRoute>} />
+          {/* Tickets – Member 3 */}
+          <Route path="/tickets/new"   element={<ProtectedRoute><CreateTicketPage /></ProtectedRoute>} />
+          <Route path="/tickets/my"    element={<ProtectedRoute><MyTicketsPage /></ProtectedRoute>} />
+          <Route path="/tickets/:id"   element={<ProtectedRoute><TicketDetailPage /></ProtectedRoute>} />
+          <Route path="/admin/tickets" element={<AdminRoute><AdminTicketsPage /></AdminRoute>} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
