@@ -4,6 +4,9 @@ import Navbar from './components/layout/Navbar'
 import ProtectedRoute from './components/common/ProtectedRoute'
 import AdminRoute from './components/common/AdminRoute'
 import LoginPage from './pages/auth/LoginPage'
+import ResourceListPage   from './pages/resources/ResourceListPage'
+import ResourceDetailPage from './pages/resources/ResourceDetailPage'
+import ResourceManagePage from './pages/admin/ResourceManagePage'
 
 // Pages will be imported per feature branch
 const Home = () => <div style={{ padding: 32 }}><h2>Smart Campus Operations Hub</h2></div>
@@ -25,10 +28,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
 
-          {/* Module A – Resources (feature/member1-facilities) */}
-          {/* <Route path="/resources" element={<ResourceListPage />} /> */}
-          {/* <Route path="/resources/:id" element={<ResourceDetailPage />} /> */}
-          {/* <Route path="/admin/resources" element={<AdminRoute><ResourceManagePage /></AdminRoute>} /> */}
+          {/* Module A – Resources */}
+          <Route path="/resources" element={<ResourceListPage />} />
+          <Route path="/resources/:id" element={<ResourceDetailPage />} />
+          <Route path="/admin/resources" element={<AdminRoute><ResourceManagePage /></AdminRoute>} />
 
           {/* Module B – Bookings (feature/member2-bookings) */}
           {/* <Route path="/bookings/new" element={<ProtectedRoute><BookingFormPage /></ProtectedRoute>} /> */}
